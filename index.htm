@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Image Shuffle</title>
+  <style>
+    #image-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #image-container img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="image-container">
+    <img id="random-image" src="" alt="Random Image">
+  </div>
+
+  <script>
+    // Array of image paths
+    const imagePaths = [
+      'https://i.chzbgr.com/full/9206320896/h18139544/corner-with-a-sign-that-says-the-corner-is-available-caption-reads-oh-look-your-mom-quit-her-job',
+      'https://i.chzbgr.com/full/9193266944/hFABA6917/stitch-with-a-picture-of-pluto-that-says-dear-nasa-your-mom-thought-i-was-big-enough-love-pluto',
+      'https://i.chzbgr.com/full/5759270144/hD571565B/going-to-space-harder-than-your-mother',
+      'https://i.chzbgr.com/full/6068713216/h0ED82E4F/hunger-trolls',
+      'https://i.chzbgr.com/full/6451019520/h68CCA949/free-mustache-rides',
+      'https://i.chzbgr.com/full/4734154240/h985BCC0E/exceptions',
+      'https://i.chzbgr.com/full/6642513920/hD9FBD029/untitled',
+      'https://i.chzbgr.com/full/7074632960/hA86F844C/untitled',
+      'https://i.chzbgr.com/full/7649596416/hDA3FA9EE/your-mom-is-the-best-comeback-of-all-time',
+      'https://i.chzbgr.com/full/8202477312/h5A5E8082/its-best-never-to-talk-about-it',
+      'https://i.chzbgr.com/full/8236599040/h09C517F7/well-its-not-like-we-couldnt-post-such-a-good-pun',
+      'https://i.chzbgr.com/full/8425118464/hACB9CD55/shots-fired',
+      'https://i.chzbgr.com/full/8603677440/h62D2F7B4/my-mother-died-in-the-puppy-mill-you-jerk',
+      'https://i.chzbgr.com/full/4031632384/h1F0FA0D9/untitled',
+      'https://i.chzbgr.com/full/4416741376/h4C6C8372/dumbledore-oh-snap',
+      'https://i.chzbgr.com/full/4585302784/hA8D85A8F/well-johnny',
+      'https://i.chzbgr.com/full/4504685312/h270406F2/come-on-dad',
+      'https://i.chzbgr.com/full/9703034368/h0BF3398C',
+      'https://i.chzbgr.com/full/9703033600/hB3A621B4',
+      'https://i.chzbgr.com/full/9703033088/h9165DFFE',
+      'https://i.chzbgr.com/full/9703030272/hECAFB5F0',
+      'https://i.chzbgr.com/full/9703029760/h03A64C18',
+      'https://i.chzbgr.com/full/9703028736/h5FDA9680',
+      'https://i.chzbgr.com/full/9703028480/hEC9E3EB7',
+      'https://i.chzbgr.com/full/9703028224/h533733BA',
+      'https://i.chzbgr.com/full/9703027968/h8107D1A9',
+      'https://i.chzbgr.com/full/9703027456/h74E51213',
+      'https://i.chzbgr.com/full/9703026944/h5588D6C9',
+      'https://i.chzbgr.com/full/9703022848/hB821167C',
+    ];
+
+    // Function to shuffle the array in place
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    // Function to set a random image source
+    function setRandomImage() {
+      const randomIndex = Math.floor(Math.random() * imagePaths.length);
+      const randomImagePath = imagePaths[randomIndex];
+      const randomImageElement = document.getElementById('random-image');
+      randomImageElement.src = randomImagePath;
+    }
+
+    // Shuffle the array and set the initial random image
+    shuffleArray(imagePaths);
+    setRandomImage();
+  </script>
+</body>
+</html>	
